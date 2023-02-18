@@ -1,17 +1,16 @@
 /* eslint-disable no-undef */
-let state = false;
-
 browser.browserAction.onClicked.addListener(toggleState);
+let state = false;
 
 function toggleState() {
     state = !state;
-    browser.storage.local.set({storedState: state});
+    browser.storage.local.set({"savedState": state});
 }
 
-async function loadState(sidebarState) {
-    let savedState = await browser.storage.local.get("storedState");
-    if(savedState != undefined){
-        state = savedState;
+async function loadState() {
+    let storedState = await browser.storage.local.get("savedState");
+    if(storedState != undefined){
+        state = storedState["savedState"];
     };
 }
 
