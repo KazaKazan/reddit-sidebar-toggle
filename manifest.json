@@ -1,11 +1,13 @@
 {
     "manifest_version": 2,
-    "name": "Reddit Sidebar Toggle",
-    "version": "1.0.2",
-    "description": "Toggle the sidebar on reddit.com",
+    "name": "Reddit Sidebar Toggle+",
+    "version": "1.0",
+    "homepage_url": "https://github.com/KazaKazan/reddit-sidebar-toggle"
+    "description": "Toggle the sidebar on reddit.com, remembers the last state on page load.",
 
     "permissions": [
-        "activeTab"
+        "activeTab",
+        "storage"
     ],
 
     "icons": {
