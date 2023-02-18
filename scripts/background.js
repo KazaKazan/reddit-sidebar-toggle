@@ -1,13 +1,7 @@
 /* eslint-disable no-undef */
-browser.storage.onChanged.addListener(loadState);
+let state = false;
 
-let state = true;
-
-chrome.browserAction.onClicked.addListener(function() {
-    chrome.tabs.executeScript({
-        file: "scripts/reddit.js"
-    });
-});
+browser.browserAction.onClicked.addListener(toggleState);
 
 function toggleState() {
     state = !state;
@@ -20,3 +14,5 @@ async function loadState(sidebarState) {
         state = savedState;
     };
 }
+
+loadState();
