@@ -2,7 +2,7 @@
     "manifest_version": 2,
     "name": "Reddit Sidebar Toggle+",
     "version": "1.0",
-    "homepage_url": "https://github.com/KazaKazan/reddit-sidebar-toggle"
+    "homepage_url": "https://github.com/KazaKazan/reddit-sidebar-toggle",
     "description": "Toggle the sidebar on reddit.com, remembers the last state on page load.",
 
     "permissions": [
@@ -21,5 +21,12 @@
 
     "background": {
         "scripts": ["scripts/background.js"]
-    }
+    },
+
+    "content_scripts": [
+        {
+            "matches": ["*://*.reddit.com/*"],
+            "js": ["./scripts/reddit.js"]
+        }
+    ]
 }
