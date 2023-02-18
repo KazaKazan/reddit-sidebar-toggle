@@ -1,6 +1,4 @@
-// Reddit Sidebar Toggle.
-// Created by Dylan Araps.
-
+browser.storage.onChanged.addListener(main)
 
 function toggle_post(value) {
     // Remove margin on individual posts.
@@ -12,35 +10,36 @@ function toggle_post(value) {
     }
 }
 
+async function main() {
+    let savedState = await browser.storage.local.get("storedState");
+    if(savedState != undefined){
+        const sidebar = document.getElementsByClassName("side")[0];
+        const content = document.querySelector("[role=\"main\"]");
 
-function main() {
-    var sidebar = document.getElementsByClassName("side")[0];
-    var content = document.querySelector("[role=\"main\"]");
+        if (sidebar) {
 
-    if (sidebar) {
-        var display = sidebar.style.display;
+            if (savedState) {
+                sidebar.style.display = "none";
+                toggle_post("15px");
 
-        if (display != "none") {
-            sidebar.style.display = "none";
-            toggle_post("15px");
+                // !important needs to be used here since this class
+                // can't be overidden otherwise.
+                content.style.cssText = `margin-top: 20px !important;
+                                         margin-right: 15px !important;
+                                         padding-top: 0px !important`;
+                content.style.border  = "none";
 
-            // !important needs to be used here since this class
-            // can't be overidden otherwise.
-            content.style.cssText = `margin-top: 20px !important;
-                                     margin-right: 15px !important;
-                                     padding-top: 0px !important`;
-            content.style.border  = "none";
-
-        } else {
-            // Reset styles.
-            sidebar.style.display = null;
-            content.style.border  = null;
-            content.style.margin  = null;
-            content.style.padding = null;
-            toggle_post(null);
+            } else {
+                // Reset styles.
+                sidebar.style.display = null;
+                content.style.border  = null;
+                content.style.margin  = null;
+                content.style.padding = null;
+                toggle_post(null);
+            }
         }
     }
-}
+};
 
 
 main();
