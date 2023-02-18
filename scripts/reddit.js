@@ -11,13 +11,14 @@ function toggle_post(value) {
 }
 
 async function main() {
-    let savedState = await browser.storage.local.get("storedState");
-    if(savedState != undefined){
+    let storedState = await browser.storage.local.get("savedState");
+    if(storedState != undefined){
+        let savedState = storedState["savedState"];
+        console.log(savedState);
         const sidebar = document.getElementsByClassName("side")[0];
         const content = document.querySelector("[role=\"main\"]");
 
         if (sidebar) {
-
             if (savedState) {
                 sidebar.style.display = "none";
                 toggle_post("15px");
@@ -40,6 +41,5 @@ async function main() {
         }
     }
 };
-
 
 main();
