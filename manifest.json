@@ -11,11 +11,12 @@
     ],
 
     "icons": {
-        "48": "icons/reddit-48.png"
+        "48": "icons/reddit.svg",
+        "96": "icons/reddit.svg"
     },
 
     "browser_action": {
-        "default_icon": "icons/reddit-48.png",
+        "default_icon": "icons/reddit.svg",
         "default_title": "Reddit: Toggle Sidebar"
     },
 
