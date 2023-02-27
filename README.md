@@ -6,4 +6,4 @@ A fork of [Reddit Sidebar Toggle](https://dylanaraps/reddit-sidebar-toggle) that
 
 **Firefox**
 
-- TBA
+- [Add-On Store](https://addons.mozilla.org/en-US/firefox/addon/reddit-sidebar-toggle-plus/)
